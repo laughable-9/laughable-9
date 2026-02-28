@@ -1,46 +1,53 @@
 # Kyle Pagunsan
 
-**Full-Stack Developer** building government digital services, Web3 platforms, and institutional software.
+**Full-Stack Developer** — I build modern web applications that replace manual workflows with scalable, production-grade systems. Most of my work ships under NDA for government and institutional clients.
 
-BS Computer Science — University of the Philippines Baguio
+I use AI heavily to accelerate development without sacrificing code quality or security. I don't need hand-holding — I need a problem to solve.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL_HERE)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:clarencekyl3@gmail.com)
 
 ---
 
-### What I Work On
+### Development Wins
 
-**Government & Institutional Software** — I build citizen-facing platforms and internal tools that digitize workflows for government offices and universities. Most of this work is under NDA, but the scope includes form processing systems, multi-role approval pipelines, document generation, and real-time status tracking — serving hundreds of active users.
+**Student Services Digitization** — Built a full-stack app that transformed a manual student processing workflow (activity requests, org recognition, annual reports), reducing turnaround time from multiple days to minutes. [[SRO Web](https://github.com/sacdalance/sroweb)]
 
-**Web3 / Blockchain** — I build on-chain applications on Aptos and Solana. [Ruffles](https://github.com/laughable-9/ruffles) is a trustless raffle platform using Move smart contracts and Verifiable Random Functions for cryptographic fairness.
+**Public Health System** — Architected a centralized dashboard to manage nutrition data across 119 health centers, consolidating scattered records into a single source of truth.
 
-**Compilers & Language Design** — Built a [logic programming language interpreter](https://github.com/laughable-9/CMSC-124-LangImplementation) from scratch in Java — lexer, parser, and evaluator with full error handling.
+**Mortgage Application Platform** — Developed an improved mortgage analysis application with a modern frontend, streamlining the calculation and decision-making process for users.
+
+**Large-Scale Records Management** — Optimized a records system managing 68,000+ files for a Senior Citizens office, drastically improving retrieval speed.
 
 ---
 
 ### Tech Stack
 
-**Frontend:** React, Next.js 14, TypeScript, Tailwind CSS, ShadCN UI, Vite
-
-**Backend:** Node.js, Express.js, PostgreSQL, Supabase, Google Drive API
-
-**Blockchain:** Aptos (Move), Solana, Verifiable Random Functions
-
-**Languages:** TypeScript, JavaScript, Java, Move, SQL
-
-**Tools:** Git, Vercel, Linux, Figma
+```
+Frontend     →  Next.js · React · TypeScript · Tailwind CSS
+Backend      →  Node.js · Express.js · Supabase · PostgreSQL
+DevOps       →  Docker · Git · Vercel · Linux
+Other        →  AI Prompt Engineering · Google Drive API · Figma
+```
 
 ---
 
-### Notable Work
+### Projects
 
-| Project | What It Does | Stack |
-|---|---|---|
-| **Government Digital Services** (NDA) | Citizen-facing apps for document processing, approvals, and case management across government offices | React, Node.js, PostgreSQL, Supabase |
-| [**Ruffles**](https://github.com/laughable-9/ruffles) | On-chain raffle platform on Aptos with VRF-based fairness and instant settlement | Next.js 14, TypeScript, Move, Aptos |
-| [**SRO Web**](https://github.com/sacdalance/sroweb) | Digitized the UP Baguio Student Relations Office — activity requests, org recognition, annual reports | React, Express, Supabase, Google Drive API |
-| [**Logic Interpreter**](https://github.com/laughable-9/CMSC-124-LangImplementation) | Full interpreter for a logic programming language — scanner, parser, evaluator | Java |
+| Project | Description | Stack | Link |
+|---|---|---|---|
+| **SRO Web** | All-in-one web app for UP Baguio's Student Relations Office — digitized activity requests, org recognition, and annual report processing | React, Express, Supabase, PostgreSQL | [Repo](https://github.com/sacdalance/sroweb) |
+| **Health Services Office App** | Centralized dashboard for managing nutrition data across 119 health centers | Next.js, Supabase, PostgreSQL | Private |
+| **MortgageMind** | Mortgage analysis platform with improved UX and calculation engine | Next.js, React, Tailwind | Private |
+
+> Most of my professional work is built for government offices and universities under NDA. The projects above represent the scope and complexity of what I deliver — if you want to see how I work, the SRO Web repo has 580+ commits of real production code.
 
 ---
 
-### Contact
+### About
 
-**Email:** clarencekyl3@gmail.com · **GitHub:** [laughable-9](https://github.com/laughable-9)
+BS Computer Science — University of the Philippines Baguio
+
+I ship products, not prototypes. If you have a problem that needs solving, let's talk.
+
+**Email:** clarencekyl3@gmail.com · **LinkedIn:** [Clarence Kyle Pagunsan](YOUR_LINKEDIN_URL_HERE)
