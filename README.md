@@ -14,8 +14,8 @@ I'm interested in building 🛠️ — mostly TypeScript web apps, and always le
 
 ## 📊 Stats
 
-![Kyle's GitHub stats](https://github-readme-stats.vercel.app/api?username=laughable-9&show_icons=true&theme=default&hide_border=true)
+![Kyle's GitHub stats](https://github-readme-stats-sigma-five.vercel.app/api?username=laughable-9&show_icons=true&theme=default&hide_border=true)
 
 ![GitHub Streak](https://streak-stats.demolab.com?user=laughable-9&hide_border=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=laughable-9&layout=compact&hide_border=true)
+![Top Languages](https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=laughable-9&layout=compact&hide_border=true)
