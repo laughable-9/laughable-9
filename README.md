@@ -1,6 +1,6 @@
 # Hi, I'm Kyle 😀
 
-I'm interested in building 🛠️ — mostly TypeScript web apps, and always learning a lot.
+I'm interested in building 🛠️: mostly TypeScript web apps, and always learning a lot.
 
 ## 🚀 What I build with
 
