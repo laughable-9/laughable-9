@@ -1,6 +1,8 @@
 # Hi, I'm Kyle 😀
 
-I'm interested in building 🛠️: mostly TypeScript web apps, and always learning a lot.
+I'm interested in building: mostly TypeScript web apps, and always learning a lot 🛠️
+
+Currently experimenting with Roblox game development!
 
 ## 🚀 What I build with
 
