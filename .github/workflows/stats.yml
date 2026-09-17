@@ -1,0 +1,93 @@
+name: Cache stat card SVGs
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cache-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load last good cached SVGs
+        run: |
+          mkdir -p cache
+          if git fetch origin stats --depth=1; then
+            git show FETCH_HEAD:stats.svg > cache/stats.svg.tmp 2>/dev/null && mv cache/stats.svg.tmp cache/stats.svg || rm -f cache/stats.svg.tmp
+            git show FETCH_HEAD:streak.svg > cache/streak.svg.tmp 2>/dev/null && mv cache/streak.svg.tmp cache/streak.svg || rm -f cache/streak.svg.tmp
+            git show FETCH_HEAD:top-langs.svg > cache/top-langs.svg.tmp 2>/dev/null && mv cache/top-langs.svg.tmp cache/top-langs.svg || rm -f cache/top-langs.svg.tmp
+          else
+            echo "stats branch not found yet, starting with an empty cache"
+          fi
+
+      - name: Refresh stats card
+        run: |
+          url="https://github-readme-stats-flax-ten-18.vercel.app/api?username=laughable-9&show_icons=true&theme=default&hide_border=true"
+          tmp="$(mktemp)"
+          if curl -fsSL --retry 5 --retry-delay 10 --max-time 60 -o "$tmp" "$url"; then
+            if grep -q "<svg" "$tmp" && ! grep -qi "something went wrong" "$tmp" && ! grep -qi "rate limit" "$tmp"; then
+              cp "$tmp" cache/stats.svg
+              echo "stats card refreshed"
+            else
+              echo "stats card response did not look like a valid card, keeping last good copy"
+            fi
+          else
+            echo "stats card fetch failed, keeping last good copy"
+          fi
+
+      - name: Refresh streak card
+        run: |
+          url="https://streak-stats.demolab.com?user=laughable-9&hide_border=true"
+          tmp="$(mktemp)"
+          if curl -fsSL --retry 5 --retry-delay 10 --max-time 60 -o "$tmp" "$url"; then
+            if grep -q "<svg" "$tmp" && ! grep -qi "something went wrong" "$tmp" && ! grep -qi "rate limit" "$tmp"; then
+              cp "$tmp" cache/streak.svg
+              echo "streak card refreshed"
+            else
+              echo "streak card response did not look like a valid card, keeping last good copy"
+            fi
+          else
+            echo "streak card fetch failed, keeping last good copy"
+          fi
+
+      - name: Refresh top languages card
+        run: |
+          url="https://github-readme-stats-flax-ten-18.vercel.app/api/top-langs/?username=laughable-9&layout=compact&hide_border=true"
+          tmp="$(mktemp)"
+          if curl -fsSL --retry 5 --retry-delay 10 --max-time 60 -o "$tmp" "$url"; then
+            if grep -q "<svg" "$tmp" && ! grep -qi "something went wrong" "$tmp" && ! grep -qi "rate limit" "$tmp"; then
+              cp "$tmp" cache/top-langs.svg
+              echo "top languages card refreshed"
+            else
+              echo "top languages card response did not look like a valid card, keeping last good copy"
+            fi
+          else
+            echo "top languages card fetch failed, keeping last good copy"
+          fi
+
+      - name: Publish cached SVGs to the stats branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -s cache/stats.svg ] && [ ! -s cache/streak.svg ] && [ ! -s cache/top-langs.svg ]; then
+            echo "No cached SVGs available at all, nothing to publish."
+            exit 0
+          fi
+          rm -rf publish
+          mkdir publish
+          cp cache/*.svg publish/ 2>/dev/null || true
+          cd publish
+          git init -q
+          git checkout -q -b stats
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -q -m "Update cached stat card SVGs"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin stats
